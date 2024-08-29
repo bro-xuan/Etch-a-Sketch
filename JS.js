@@ -5,11 +5,19 @@ for (i=0;i<16*16;i++){
     container.appendChild(gridItem);
 }
 
+function getRandomColor(){
+    const r = Math.floor(Math.random()*256);
+    const g = Math.floor(Math.random()*256);
+    const b = Math.floor(Math.random()*256);
+    return `rgb(${r},${g},${b})`;
+}
+
 const divs = document.querySelectorAll(".gridStyle");
 
 for (let i=0;i<divs.length;i++) {
     divs[i].addEventListener("mouseenter", function() {
-    this.style.backgroundColor="red"});
+        this.style.backgroundColor = getRandomColor();
+    });
 }
 
 let gridSize;
@@ -44,11 +52,11 @@ function deleteAndCreateGrid() {
 
         const newDivs = document.querySelectorAll("#container > div");
         newDivs.forEach(div=>{
-            div.addEventListener("mouseenter",function(){
-                this.style.backgroundColor="red";
+            div.addEventListener("mouseenter",function() {
+                this.style.backgroundColor = getRandomColor();
             });
         });
-    }
+    };
 }
 btn=document.querySelector("#enter");
 btn.addEventListener("click",deleteAndCreateGrid);
